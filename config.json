@@ -1,0 +1,17 @@
+{
+  "site_title": "Turf Kings Matchday",
+  "timezone": "America/Toronto",
+  "source": {
+    "base_url": "https://burlingtonsoccer.powerupsports.com",
+    "season_id": 6751,
+    "category": "MOA",
+    "division": "MOA Div. North Regular Season",
+    "team": "Turf Kings"
+  },
+  "updates": {
+    "post_game_delay_minutes": 5,
+    "result_retry_minutes": 90,
+    "daily_refresh_hours": 24,
+    "request_delay_seconds": 0.4
+  }
+}

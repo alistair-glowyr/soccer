@@ -1,0 +1,82 @@
+name: Refresh and deploy matchday dashboard
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    # GitHub's shortest interval is five minutes. The script only contacts the
+    # club site after a game or when the daily schedule refresh is due.
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  refresh-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.x"
+
+      - name: Refresh data when due
+        id: refresh
+        shell: bash
+        run: |
+          if [[ "${{ github.event_name }}" == "schedule" ]]; then
+            python scripts/update_data.py --if-due
+          else
+            python scripts/update_data.py --force
+          fi
+          if git diff --quiet -- data/latest.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run regression tests
+        if: github.event_name != 'schedule' || steps.refresh.outputs.changed == 'true'
+        run: python tests/test_soccerlib.py
+
+      - name: Build static site
+        if: github.event_name != 'schedule' || steps.refresh.outputs.changed == 'true'
+        run: python scripts/build_site.py
+
+      - name: Commit refreshed snapshot
+        if: steps.refresh.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data docs
+          git commit -m "Refresh matchday data"
+          git push
+
+      - name: Configure GitHub Pages
+        if: github.event_name != 'schedule' || steps.refresh.outputs.changed == 'true'
+        uses: actions/configure-pages@v6
+
+      - name: Upload Pages artifact
+        if: github.event_name != 'schedule' || steps.refresh.outputs.changed == 'true'
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: docs
+
+      - name: Deploy to GitHub Pages
+        if: github.event_name != 'schedule' || steps.refresh.outputs.changed == 'true'
+        id: deployment
+        uses: actions/deploy-pages@v5

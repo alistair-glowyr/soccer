@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#09231d">
+  <meta name="description" content="A fast, mobile-friendly view of the Turf Kings schedule and standings.">
+  <title>Turf Kings · Matchday</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="hero">
+    <div class="topbar wrap">
+      <a class="brand" href="#top" aria-label="Turf Kings home"><span class="mark">TK</span><span><strong>Turf Kings</strong><small>Matchday</small></span></a>
+      <span class="league">MOA · MOA Div. North</span>
+    </div>
+    <div class="hero-grid wrap" id="top">
+      <div class="identity">
+        <p class="eyebrow">Burlington Soccer Club</p>
+        <h1>Everything you need.<br><span>Nothing to click through.</span></h1>
+        <div class="quick-stats" aria-label="Team summary">
+          <div><strong>1st</strong><span>Position</span></div>
+          <div><strong>4–1–0</strong><span>W–T–L</span></div>
+          <div><strong>13</strong><span>Points</span></div>
+          <div><strong>+16</strong><span>Goal diff</span></div>
+        </div>
+      </div>
+      <section class="next-card" aria-label="Next match">
+          <div class="next-kicker"><span></span>Next match</div>
+          <div class="next-grid">
+            <div class="date-tile"><strong>30</strong><span>NOV</span></div>
+            <div class="next-copy">
+              <p class="versus">Away · vs</p>
+              <h2>Glen Abbey Galacticos</h2>
+              <div class="match-meta">
+                <span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M7 2v3M17 2v3M3.5 9h17M5 4h14a2 2 0 0 1 2 2v14H3V6a2 2 0 0 1 2-2Z"/></svg>Monday, November 30</span>
+                <span><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>7:00 PM</span>
+                <a href="https://www.google.ca/maps/place/43.380500793457,-79.756172180176" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>DOME 3</a>
+              </div>
+            </div>
+          </div></section>
+    </div>
+  </header>
+
+  <main class="wrap main-content">
+    <nav class="tabs" aria-label="Dashboard sections">
+      <button class="tab is-active" type="button" data-tab="schedule" aria-selected="true" aria-controls="schedule">Schedule <span>4</span></button>
+      <button class="tab" type="button" data-tab="standings" aria-selected="false" aria-controls="standings">Standings <span>1/6</span></button>
+    </nav>
+
+    <section class="panel is-active" id="schedule" aria-labelledby="schedule-title">
+      <div class="section-heading"><div><p class="eyebrow dark">Coming up</p><h2 id="schedule-title">Fixture list</h2></div><p>Times shown in Toronto time</p></div>
+      <div class="fixtures">
+            <article class="fixture is-next">
+              <div class="fixture-date"><span>Mon</span><strong>30</strong><small>Nov</small></div>
+              <div class="fixture-body">
+                <div class="fixture-label"><span class="pill">Away</span>Next up</div>
+                <h3><span>vs</span> Glen Abbey Galacticos</h3>
+                <div class="fixture-meta">
+                  <span><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>7:00 PM</span>
+                  <a href="https://www.google.ca/maps/place/43.380500793457,-79.756172180176" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>DOME 3</a>
+                </div>
+              </div>
+            </article>
+            <article class="fixture">
+              <div class="fixture-date"><span>Mon</span><strong>07</strong><small>Dec</small></div>
+              <div class="fixture-body">
+                <div class="fixture-label"><span class="pill">Home</span>019</div>
+                <h3><span>vs</span> Ballz Deep FC</h3>
+                <div class="fixture-meta">
+                  <span><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>8:00 PM</span>
+                  <a href="https://www.google.ca/maps/place/43.380500793457,-79.756172180176" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>DOME 3</a>
+                </div>
+              </div>
+            </article>
+            <article class="fixture">
+              <div class="fixture-date"><span>Mon</span><strong>14</strong><small>Dec</small></div>
+              <div class="fixture-body">
+                <div class="fixture-label"><span class="pill">Home</span>023</div>
+                <h3><span>vs</span> Hamilton Croatia</h3>
+                <div class="fixture-meta">
+                  <span><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>10:00 PM</span>
+                  <a href="https://www.google.ca/maps/place/43.380500793457,-79.756172180176" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>DOME 1/THE PITCH</a>
+                </div>
+              </div>
+            </article>
+            <article class="fixture">
+              <div class="fixture-date"><span>Mon</span><strong>21</strong><small>Dec</small></div>
+              <div class="fixture-body">
+                <div class="fixture-label"><span class="pill">Away</span>027</div>
+                <h3><span>vs</span> Carvetii FC</h3>
+                <div class="fixture-meta">
+                  <span><svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>11:00 PM</span>
+                  <a href="https://www.google.ca/maps/place/43.380500793457,-79.756172180176" target="_blank" rel="noopener"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>DOME 3</a>
+                </div>
+              </div>
+            </article></div>
+    </section>
+
+    <section class="panel" id="standings" aria-labelledby="standings-title" hidden>
+      <div class="section-heading"><div><p class="eyebrow dark">League table</p><h2 id="standings-title">MOA Div. North</h2></div><p>5 matches played</p></div>
+      <div class="table-shell">
+        <table>
+          <thead><tr><th>#</th><th>Team</th><th title="Played">P</th><th class="wide" title="Wins">W</th><th class="wide" title="Ties">T</th><th class="wide" title="Losses">L</th><th class="wide" title="Goals for">GF</th><th class="wide" title="Goals against">GA</th><th title="Goal difference">GD</th><th class="wide">Form</th><th>Pts</th></tr></thead>
+          <tbody>
+            <tr class="is-team">
+              <td class="rank">1</td>
+              <th scope="row"><span class="team-cell">Turf Kings<em>You</em></span></th>
+              <td>5</td><td class="wide">4</td><td class="wide">1</td><td class="wide">0</td>
+              <td class="wide">22</td><td class="wide">6</td><td>+16</td>
+              <td class="form-cell wide"><span class="form form-t">T</span><span class="form form-w">W</span><span class="form form-w">W</span><span class="form form-w">W</span><span class="form form-w">W</span></td><td class="points">13</td>
+            </tr>
+            <tr>
+              <td class="rank">2</td>
+              <th scope="row"><span class="team-cell">Royal FC</span></th>
+              <td>5</td><td class="wide">4</td><td class="wide">1</td><td class="wide">0</td>
+              <td class="wide">24</td><td class="wide">9</td><td>+15</td>
+              <td class="form-cell wide"><span class="form form-t">T</span><span class="form form-w">W</span><span class="form form-w">W</span><span class="form form-w">W</span><span class="form form-w">W</span></td><td class="points">13</td>
+            </tr>
+            <tr>
+              <td class="rank">3</td>
+              <th scope="row"><span class="team-cell">Glen Abbey Galacticos</span></th>
+              <td>5</td><td class="wide">3</td><td class="wide">0</td><td class="wide">2</td>
+              <td class="wide">18</td><td class="wide">12</td><td>+6</td>
+              <td class="form-cell wide"><span class="form form-w">W</span><span class="form form-w">W</span><span class="form form-l">L</span><span class="form form-w">W</span><span class="form form-l">L</span></td><td class="points">9</td>
+            </tr>
+            <tr>
+              <td class="rank">4</td>
+              <th scope="row"><span class="team-cell">Carvetii FC</span></th>
+              <td>5</td><td class="wide">2</td><td class="wide">0</td><td class="wide">3</td>
+              <td class="wide">21</td><td class="wide">14</td><td>+7</td>
+              <td class="form-cell wide"><span class="form form-l">L</span><span class="form form-l">L</span><span class="form form-w">W</span><span class="form form-l">L</span><span class="form form-w">W</span></td><td class="points">6</td>
+            </tr>
+            <tr>
+              <td class="rank">5</td>
+              <th scope="row"><span class="team-cell">Ballz Deep FC</span></th>
+              <td>5</td><td class="wide">1</td><td class="wide">0</td><td class="wide">4</td>
+              <td class="wide">9</td><td class="wide">21</td><td>-12</td>
+              <td class="form-cell wide"><span class="form form-w">W</span><span class="form form-l">L</span><span class="form form-l">L</span><span class="form form-l">L</span><span class="form form-l">L</span></td><td class="points">3</td>
+            </tr>
+            <tr>
+              <td class="rank">6</td>
+              <th scope="row"><span class="team-cell">Hamilton Croatia</span></th>
+              <td>5</td><td class="wide">0</td><td class="wide">0</td><td class="wide">5</td>
+              <td class="wide">11</td><td class="wide">43</td><td>-32</td>
+              <td class="form-cell wide"><span class="form form-l">L</span><span class="form form-l">L</span><span class="form form-l">L</span><span class="form form-l">L</span><span class="form form-l">L</span></td><td class="points">0</td>
+            </tr></tbody>
+        </table>
+      </div>
+      <p class="mobile-note">Showing the essential columns. Rotate your phone or use a wider screen for the full table.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div><span class="pulse"></span><p><strong>Last synced <time datetime="2026-11-27T03:37:31Z">Nov 26 at 10:37 PM</time></strong><br><span>November 26, 2026 2:15 AM</span></p></div>
+      <p>An unofficial dashboard · <a href="https://burlingtonsoccer.powerupsports.com/index.php?page=STANDINGS&amp;p=1&amp;sid=6751&amp;category_id=10256&amp;gameset_id=108932" target="_blank" rel="noopener">View the club source</a></p>
+    </div>
+  </footer>
+</body>
+</html>

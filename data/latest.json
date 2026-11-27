@@ -1,0 +1,233 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-11-27T03:37:31Z",
+  "source_modified_at": "November 26, 2026 2:15 AM",
+  "league": {
+    "season_id": 6751,
+    "category": "MOA",
+    "division": "MOA Div. North Regular Season"
+  },
+  "team": {
+    "rank": 1,
+    "name": "Turf Kings",
+    "colour": "Black",
+    "played": 5,
+    "wins": 4,
+    "ties": 1,
+    "losses": 0,
+    "goals_for": 22,
+    "goals_against": 6,
+    "goal_difference": 16,
+    "shutouts": 1,
+    "points": 13,
+    "form": [
+      "T",
+      "W",
+      "W",
+      "W",
+      "W"
+    ]
+  },
+  "standings": [
+    {
+      "rank": 1,
+      "name": "Turf Kings",
+      "colour": "Black",
+      "played": 5,
+      "wins": 4,
+      "ties": 1,
+      "losses": 0,
+      "goals_for": 22,
+      "goals_against": 6,
+      "goal_difference": 16,
+      "shutouts": 1,
+      "points": 13,
+      "form": [
+        "T",
+        "W",
+        "W",
+        "W",
+        "W"
+      ]
+    },
+    {
+      "rank": 2,
+      "name": "Royal FC",
+      "colour": "Blue",
+      "played": 5,
+      "wins": 4,
+      "ties": 1,
+      "losses": 0,
+      "goals_for": 24,
+      "goals_against": 9,
+      "goal_difference": 15,
+      "shutouts": 1,
+      "points": 13,
+      "form": [
+        "T",
+        "W",
+        "W",
+        "W",
+        "W"
+      ]
+    },
+    {
+      "rank": 3,
+      "name": "Glen Abbey Galacticos",
+      "colour": "White",
+      "played": 5,
+      "wins": 3,
+      "ties": 0,
+      "losses": 2,
+      "goals_for": 18,
+      "goals_against": 12,
+      "goal_difference": 6,
+      "shutouts": 0,
+      "points": 9,
+      "form": [
+        "W",
+        "W",
+        "L",
+        "W",
+        "L"
+      ]
+    },
+    {
+      "rank": 4,
+      "name": "Carvetii FC",
+      "colour": "White",
+      "played": 5,
+      "wins": 2,
+      "ties": 0,
+      "losses": 3,
+      "goals_for": 21,
+      "goals_against": 14,
+      "goal_difference": 7,
+      "shutouts": 0,
+      "points": 6,
+      "form": [
+        "L",
+        "L",
+        "W",
+        "L",
+        "W"
+      ]
+    },
+    {
+      "rank": 5,
+      "name": "Ballz Deep FC",
+      "colour": "Black",
+      "played": 5,
+      "wins": 1,
+      "ties": 0,
+      "losses": 4,
+      "goals_for": 9,
+      "goals_against": 21,
+      "goal_difference": -12,
+      "shutouts": 0,
+      "points": 3,
+      "form": [
+        "W",
+        "L",
+        "L",
+        "L",
+        "L"
+      ]
+    },
+    {
+      "rank": 6,
+      "name": "Hamilton Croatia",
+      "colour": "Black",
+      "played": 5,
+      "wins": 0,
+      "ties": 0,
+      "losses": 5,
+      "goals_for": 11,
+      "goals_against": 43,
+      "goal_difference": -32,
+      "shutouts": 0,
+      "points": 0,
+      "form": [
+        "L",
+        "L",
+        "L",
+        "L",
+        "L"
+      ]
+    }
+  ],
+  "schedule": [
+    {
+      "id": "2026-11-30T19:00:00-05:00|Glen Abbey Galacticos|Turf Kings",
+      "date_label": "Monday, November 30, 2026",
+      "time_label": "7:00-8:00 PM",
+      "start": "2026-11-30T19:00-05:00",
+      "end": "2026-11-30T20:00-05:00",
+      "home": "Glen Abbey Galacticos",
+      "home_colour": "White",
+      "away": "Turf Kings",
+      "away_colour": "Black",
+      "location": "DOME 3",
+      "map_url": "https://www.google.ca/maps/place/43.380500793457,-79.756172180176",
+      "notes": "016 - Regular Season",
+      "type": "R",
+      "expected_played_after": 6,
+      "status": "upcoming"
+    },
+    {
+      "id": "2026-12-07T20:00:00-05:00|Turf Kings|Ballz Deep FC",
+      "date_label": "Monday, December 7, 2026",
+      "time_label": "8:00-9:00 PM",
+      "start": "2026-12-07T20:00-05:00",
+      "end": "2026-12-07T21:00-05:00",
+      "home": "Turf Kings",
+      "home_colour": "Black",
+      "away": "Ballz Deep FC",
+      "away_colour": "Black",
+      "location": "DOME 3",
+      "map_url": "https://www.google.ca/maps/place/43.380500793457,-79.756172180176",
+      "notes": "019 - Regular Season",
+      "type": "R",
+      "expected_played_after": 7,
+      "status": "upcoming"
+    },
+    {
+      "id": "2026-12-14T22:00:00-05:00|Turf Kings|Hamilton Croatia",
+      "date_label": "Monday, December 14, 2026",
+      "time_label": "10:00-11:00 PM",
+      "start": "2026-12-14T22:00-05:00",
+      "end": "2026-12-14T23:00-05:00",
+      "home": "Turf Kings",
+      "home_colour": "Black",
+      "away": "Hamilton Croatia",
+      "away_colour": "Black",
+      "location": "DOME 1/THE PITCH",
+      "map_url": "https://www.google.ca/maps/place/43.380500793457,-79.756172180176",
+      "notes": "023 - Regular Season",
+      "type": "R",
+      "expected_played_after": 8,
+      "status": "upcoming"
+    },
+    {
+      "id": "2026-12-21T23:00:00-05:00|Carvetii FC|Turf Kings",
+      "date_label": "Monday, December 21, 2026",
+      "time_label": "11:00-12:00 AM",
+      "start": "2026-12-21T23:00-05:00",
+      "end": "2026-12-22T00:00-05:00",
+      "home": "Carvetii FC",
+      "home_colour": "White",
+      "away": "Turf Kings",
+      "away_colour": "Black",
+      "location": "DOME 3",
+      "map_url": "https://www.google.ca/maps/place/43.380500793457,-79.756172180176",
+      "notes": "027 - Regular Season",
+      "type": "R",
+      "expected_played_after": 9,
+      "status": "upcoming"
+    }
+  ],
+  "source_urls": {
+    "standings": "https://burlingtonsoccer.powerupsports.com/index.php?page=STANDINGS&p=1&sid=6751&category_id=10256&gameset_id=108932",
+    "schedule": "https://burlingtonsoccer.powerupsports.com/index.php?page=SCHEDULES&sid=6751&category_id=10256&division_id=103644&team_id=336925&p=1"
+  }
+}
