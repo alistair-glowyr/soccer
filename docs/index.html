@@ -8,7 +8,6 @@
   <title>Turf Kings · Matchday</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
 </head>
 <body>
   <header class="hero">
@@ -16,17 +15,7 @@
       <a class="brand" href="#top" aria-label="Turf Kings home"><span class="mark">TK</span><span><strong>Turf Kings</strong><small>Matchday</small></span></a>
       <span class="league">MOA · MOA Div. North</span>
     </div>
-    <div class="hero-grid wrap" id="top">
-      <div class="identity">
-        <p class="eyebrow">Burlington Soccer Club</p>
-        <h1>Everything you need.<br><span>Nothing to click through.</span></h1>
-        <div class="quick-stats" aria-label="Team summary">
-          <div><strong>1st</strong><span>Position</span></div>
-          <div><strong>4–1–0</strong><span>W–T–L</span></div>
-          <div><strong>13</strong><span>Points</span></div>
-          <div><strong>+16</strong><span>Goal diff</span></div>
-        </div>
-      </div>
+    <div class="matchday-hero wrap" id="top">
       <section class="next-card" aria-label="Next match">
           <div class="next-kicker"><span></span>Next match</div>
           <div class="next-grid">
@@ -41,16 +30,17 @@
               </div>
             </div>
           </div></section>
+      <div class="summary-cards" aria-label="Team summary">
+        <div class="summary-card"><strong>1st</strong><span>Position</span></div>
+        <div class="summary-card"><strong>4–1–0</strong><span>W–T–L</span></div>
+        <div class="summary-card"><strong>13</strong><span>Points</span></div>
+        <div class="summary-card"><strong>+16</strong><span>Goal diff</span></div>
+      </div>
     </div>
   </header>
 
   <main class="wrap main-content">
-    <nav class="tabs" aria-label="Dashboard sections">
-      <button class="tab is-active" type="button" data-tab="schedule" aria-selected="true" aria-controls="schedule">Schedule <span>4</span></button>
-      <button class="tab" type="button" data-tab="standings" aria-selected="false" aria-controls="standings">Standings <span>1/6</span></button>
-    </nav>
-
-    <section class="panel is-active" id="schedule" aria-labelledby="schedule-title">
+    <section class="panel" id="schedule" aria-labelledby="schedule-title">
       <div class="section-heading"><div><p class="eyebrow dark">Coming up</p><h2 id="schedule-title">Fixture list</h2></div><p>Times shown in Toronto time</p></div>
       <div class="fixtures">
             <article class="fixture is-next">
@@ -99,7 +89,7 @@
             </article></div>
     </section>
 
-    <section class="panel" id="standings" aria-labelledby="standings-title" hidden>
+    <section class="panel" id="standings" aria-labelledby="standings-title">
       <div class="section-heading"><div><p class="eyebrow dark">League table</p><h2 id="standings-title">MOA Div. North</h2></div><p>5 matches played</p></div>
       <div class="table-shell">
         <table>

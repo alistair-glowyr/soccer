@@ -29,20 +29,12 @@ a { color: inherit; }
 .brand strong { font-family: Manrope, sans-serif; font-size: 16px; }
 .brand small { margin-top: 5px; color: #9fb2ac; font-size: 12px; text-transform: uppercase; letter-spacing: .16em; }
 .league { color: #b8c8c3; font-size: 14px; }
-.hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; gap: 72px; align-items: center; padding-block: 74px 88px; }
+.matchday-hero { position: relative; z-index: 1; padding-block: 58px 66px; }
 .eyebrow { margin: 0 0 14px; color: var(--lime); font-size: 13px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
-.identity h1 { max-width: 660px; margin: 0; font-family: Manrope, sans-serif; font-size: clamp(36px, 5vw, 62px); line-height: 1.06; letter-spacing: -.045em; }
-.identity h1 span { color: #8ea29c; }
-.quick-stats { display: flex; margin-top: 46px; }
-.quick-stats > div { min-width: 90px; padding-right: 24px; margin-right: 24px; border-right: 1px solid rgba(255,255,255,.13); }
-.quick-stats > div:last-child { border: 0; margin: 0; padding: 0; }
-.quick-stats strong, .quick-stats span { display: block; }
-.quick-stats strong { font-family: Manrope, sans-serif; font-size: 23px; letter-spacing: -.03em; }
-.quick-stats span { margin-top: 2px; color: #91a59f; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
-.next-card { position: relative; padding: 30px; border: 1px solid rgba(255,255,255,.13); border-radius: 28px; background: rgba(255,255,255,.08); box-shadow: 0 24px 80px rgba(0,0,0,.19); backdrop-filter: blur(12px); }
+.next-card { position: relative; padding: 34px; border: 1px solid rgba(255,255,255,.13); border-radius: 28px; background: rgba(255,255,255,.08); box-shadow: 0 24px 80px rgba(0,0,0,.19); backdrop-filter: blur(12px); }
 .next-kicker { display: flex; align-items: center; gap: 9px; margin-bottom: 25px; color: #b9c9c4; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .12em; }
 .next-kicker span { width: 7px; height: 7px; border-radius: 50%; background: var(--lime); box-shadow: 0 0 0 5px rgba(184,242,61,.1); }
-.next-grid { display: grid; grid-template-columns: 78px 1fr; gap: 22px; align-items: start; }
+.next-grid { display: grid; grid-template-columns: 88px 1fr; gap: 26px; align-items: center; }
 .date-tile { overflow: hidden; display: grid; text-align: center; border-radius: 17px; background: #fff; color: var(--forest); }
 .date-tile strong { padding: 11px 5px 5px; font-family: Manrope, sans-serif; font-size: 30px; line-height: 1; }
 .date-tile span { padding: 5px; background: var(--lime); font-size: 11px; font-weight: 800; letter-spacing: .12em; }
@@ -53,12 +45,13 @@ a { color: inherit; }
 .match-meta a, .fixture-meta a { text-decoration-color: rgba(255,255,255,.35); text-underline-offset: 3px; }
 svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
 .season-complete p { color: #9fb2ac; margin-bottom: 0; }
-.main-content { min-height: 480px; padding-block: 36px 76px; }
-.tabs { display: inline-flex; gap: 5px; padding: 5px; border: 1px solid var(--line); border-radius: 15px; background: #e9eee9; }
-.tab { min-height: 44px; padding: 0 18px; border: 0; border-radius: 11px; background: transparent; color: #66736f; font: 600 15px "DM Sans", sans-serif; cursor: pointer; }
-.tab span { display: inline-grid; min-width: 25px; height: 22px; margin-left: 8px; padding-inline: 5px; place-items: center; border-radius: 7px; background: rgba(9,35,29,.08); font-size: 12px; }
-.tab.is-active { background: var(--card); color: var(--forest); box-shadow: 0 3px 12px rgba(8,35,28,.08); }
-.panel { padding-top: 44px; }
+.summary-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
+.summary-card { min-width: 0; padding: 20px 22px; border: 1px solid rgba(255,255,255,.11); border-radius: 18px; background: rgba(255,255,255,.055); }
+.summary-card strong, .summary-card span { display: block; }
+.summary-card strong { font-family: Manrope, sans-serif; font-size: 23px; letter-spacing: -.03em; }
+.summary-card span { margin-top: 3px; color: #91a59f; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+.main-content { min-height: 480px; padding-block: 54px 76px; }
+.panel + .panel { margin-top: 72px; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
 .section-heading h2 { margin: 0; font-family: Manrope, sans-serif; font-size: clamp(27px, 4vw, 38px); letter-spacing: -.04em; }
 .section-heading > p { margin: 0 0 6px; color: var(--muted); font-size: 14px; }
@@ -105,7 +98,6 @@ footer { border-top: 1px solid var(--line); background: #e9eee9; }
 .pulse { width: 9px; height: 9px; border-radius: 50%; background: #5db06f; box-shadow: 0 0 0 5px rgba(93,176,111,.13); }
 
 @media (max-width: 820px) {
-  .hero-grid { grid-template-columns: 1fr; gap: 44px; padding-block: 55px 66px; }
   .fixtures { grid-template-columns: 1fr; }
 }
 
@@ -113,23 +105,18 @@ footer { border-top: 1px solid var(--line); background: #e9eee9; }
   .wrap { width: min(100% - 28px, 1120px); }
   .topbar { height: 74px; }
   .league { display: none; }
-  .hero-grid { padding-block: 44px 52px; }
-  .identity h1 { font-size: 38px; }
-  .quick-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 35px; }
-  .quick-stats > div { min-width: 0; margin: 0; padding: 0 10px; text-align: center; }
-  .quick-stats > div:first-child { padding-left: 0; text-align: left; }
-  .quick-stats > div:last-child { text-align: right; }
-  .quick-stats strong { font-size: 19px; }
-  .quick-stats span { font-size: 9px; }
+  .matchday-hero { padding-block: 36px 42px; }
   .next-card { padding: 23px 20px; border-radius: 23px; }
   .next-grid { grid-template-columns: 65px 1fr; gap: 15px; }
   .date-tile strong { font-size: 26px; }
   .next-copy h2 { font-size: 25px; }
   .match-meta { display: grid; margin-top: 17px; }
-  .main-content { padding-block: 25px 54px; }
-  .tabs { display: flex; width: 100%; }
-  .tab { flex: 1; padding-inline: 10px; }
-  .panel { padding-top: 36px; }
+  .summary-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 12px; }
+  .summary-card { padding: 15px 17px; border-radius: 15px; }
+  .summary-card strong { font-size: 20px; }
+  .summary-card span { font-size: 10px; }
+  .main-content { padding-block: 40px 54px; }
+  .panel + .panel { margin-top: 56px; }
   .section-heading { align-items: start; margin-bottom: 19px; }
   .section-heading > p { display: none; }
   .fixture { grid-template-columns: 70px 1fr; }

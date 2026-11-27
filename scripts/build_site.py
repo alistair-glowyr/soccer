@@ -128,7 +128,6 @@ def main() -> int:
   <title>{escape(team_name)} · Matchday</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
-  <script src="app.js" defer></script>
 </head>
 <body>
   <header class="hero">
@@ -136,33 +135,24 @@ def main() -> int:
       <a class="brand" href="#top" aria-label="{escape(team_name)} home"><span class="mark">TK</span><span><strong>{escape(team_name)}</strong><small>Matchday</small></span></a>
       <span class="league">{escape(data['league']['category'])} · {escape(division_short)}</span>
     </div>
-    <div class="hero-grid wrap" id="top">
-      <div class="identity">
-        <p class="eyebrow">Burlington Soccer Club</p>
-        <h1>Everything you need.<br><span>Nothing to click through.</span></h1>
-        <div class="quick-stats" aria-label="Team summary">
-          <div><strong>{ordinal(team['rank'])}</strong><span>Position</span></div>
-          <div><strong>{record}</strong><span>W–T–L</span></div>
-          <div><strong>{team['points']}</strong><span>Points</span></div>
-          <div><strong>{fmt_signed(team['goal_difference'])}</strong><span>Goal diff</span></div>
-        </div>
-      </div>
+    <div class="matchday-hero wrap" id="top">
       <section class="next-card" aria-label="Next match">{hero_match}</section>
+      <div class="summary-cards" aria-label="Team summary">
+        <div class="summary-card"><strong>{ordinal(team['rank'])}</strong><span>Position</span></div>
+        <div class="summary-card"><strong>{record}</strong><span>W–T–L</span></div>
+        <div class="summary-card"><strong>{team['points']}</strong><span>Points</span></div>
+        <div class="summary-card"><strong>{fmt_signed(team['goal_difference'])}</strong><span>Goal diff</span></div>
+      </div>
     </div>
   </header>
 
   <main class="wrap main-content">
-    <nav class="tabs" aria-label="Dashboard sections">
-      <button class="tab is-active" type="button" data-tab="schedule" aria-selected="true" aria-controls="schedule">Schedule <span>{len(upcoming)}</span></button>
-      <button class="tab" type="button" data-tab="standings" aria-selected="false" aria-controls="standings">Standings <span>{team['rank']}/{len(data['standings'])}</span></button>
-    </nav>
-
-    <section class="panel is-active" id="schedule" aria-labelledby="schedule-title">
+    <section class="panel" id="schedule" aria-labelledby="schedule-title">
       <div class="section-heading"><div><p class="eyebrow dark">Coming up</p><h2 id="schedule-title">Fixture list</h2></div><p>Times shown in Toronto time</p></div>
       <div class="fixtures">{''.join(schedule_cards)}</div>
     </section>
 
-    <section class="panel" id="standings" aria-labelledby="standings-title" hidden>
+    <section class="panel" id="standings" aria-labelledby="standings-title">
       <div class="section-heading"><div><p class="eyebrow dark">League table</p><h2 id="standings-title">{escape(division_short)}</h2></div><p>{team['played']} matches played</p></div>
       <div class="table-shell">
         <table>
@@ -187,7 +177,7 @@ def main() -> int:
     docs = ROOT / "docs"
     docs.mkdir(exist_ok=True)
     (docs / "index.html").write_text(html, encoding="utf-8")
-    for name in ("styles.css", "app.js", "favicon.svg"):
+    for name in ("styles.css", "favicon.svg"):
         shutil.copyfile(ROOT / "site" / name, docs / name)
     (docs / ".nojekyll").touch()
     print(f"Built {docs / 'index.html'}")
