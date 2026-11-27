@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import json
 import shutil
 from datetime import datetime
@@ -117,6 +118,7 @@ def main() -> int:
     source_url = data["source_urls"]["standings"]
     division_short = data["league"]["division"].replace(" Regular Season", "")
     record = f"{team['wins']}–{team['ties']}–{team['losses']}"
+    style_version = hashlib.sha256((ROOT / "site" / "styles.css").read_bytes()).hexdigest()[:10]
 
     html = f"""<!doctype html>
 <html lang="en">
@@ -127,7 +129,7 @@ def main() -> int:
   <meta name="description" content="A fast, mobile-friendly view of the {escape(team_name)} schedule and standings.">
   <title>{escape(team_name)} · Matchday</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v={style_version}">
 </head>
 <body>
   <header class="hero">
