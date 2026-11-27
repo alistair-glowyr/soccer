@@ -31,6 +31,11 @@ def ordinal(value: int) -> str:
     return f"{value}{suffix}"
 
 
+def initials(value: str) -> str:
+    parts = [part for part in value.split() if part]
+    return "".join(part[0] for part in parts[:2]).upper()
+
+
 def dt(value: str) -> datetime:
     return datetime.fromisoformat(value.replace("Z", "+00:00"))
 
@@ -49,14 +54,16 @@ def main() -> int:
     data = load(ROOT / "data" / "latest.json")
     team = data["team"]
     team_name = team["name"]
+    record = f"{team['wins']}–{team['ties']}–{team['losses']}"
     now = datetime.now(ZoneInfo(config["timezone"]))
     upcoming = [game for game in data["schedule"] if dt(game["end"]) > now]
     upcoming.sort(key=lambda game: game["start"])
     next_game = upcoming[0] if upcoming else None
 
+    matchup_preview = ""
     if next_game:
         start = dt(next_game["start"])
-        opponent = next_game["away"] if next_game["home"] == team_name else next_game["home"]
+        next_opponent = next_game["away"] if next_game["home"] == team_name else next_game["home"]
         side = "Home" if next_game["home"] == team_name else "Away"
         hero_match = f"""
           <div class="next-kicker"><span></span>Next match</div>
@@ -64,7 +71,7 @@ def main() -> int:
             <div class="date-tile"><strong>{escape(start.strftime('%d'))}</strong><span>{escape(start.strftime('%b').upper())}</span></div>
             <div class="next-copy">
               <p class="versus">{escape(side)} · vs</p>
-              <h2>{escape(opponent)}</h2>
+              <h2>{escape(next_opponent)}</h2>
               <div class="match-meta">
                 <span>{icon('calendar')}{escape(start.strftime('%A, %B %-d'))}</span>
                 <span>{icon('clock')}{escape(start.strftime('%-I:%M %p'))}</span>
@@ -72,6 +79,33 @@ def main() -> int:
               </div>
             </div>
           </div>"""
+        opponent_team = next(
+            (standing for standing in data["standings"] if standing["name"] == next_opponent),
+            None,
+        )
+        if opponent_team:
+            opponent_record = f"{opponent_team['wins']}–{opponent_team['ties']}–{opponent_team['losses']}"
+            matchup_preview = f"""
+      <section class="matchup-preview" aria-label="Match preview: {escape(team_name)} versus {escape(next_opponent)}">
+        <p class="preview-kicker">Match preview</p>
+        <div class="preview-teams">
+          <div class="preview-team is-us">
+            <span class="team-badge">{escape(initials(team_name))}</span>
+            <div><strong>{escape(team_name)}</strong><small>You</small></div>
+          </div>
+          <span class="preview-vs">vs</span>
+          <div class="preview-team is-opponent">
+            <span class="team-badge">{escape(initials(next_opponent))}</span>
+            <div><strong>{escape(next_opponent)}</strong><small>Opponent</small></div>
+          </div>
+        </div>
+        <div class="comparison-table">
+          <div class="comparison-row"><strong>{ordinal(team['rank'])}</strong><span>Position</span><strong>{ordinal(opponent_team['rank'])}</strong></div>
+          <div class="comparison-row"><strong>{record}</strong><span>W–T–L</span><strong>{opponent_record}</strong></div>
+          <div class="comparison-row"><strong>{team['points']}</strong><span>Points</span><strong>{opponent_team['points']}</strong></div>
+          <div class="comparison-row"><strong>{fmt_signed(team['goal_difference'])}</strong><span>Goal diff</span><strong>{fmt_signed(opponent_team['goal_difference'])}</strong></div>
+        </div>
+      </section>"""
     else:
         hero_match = """
           <div class="next-kicker"><span></span>Schedule</div>
@@ -117,7 +151,6 @@ def main() -> int:
     updated = dt(data["generated_at"]).astimezone(ZoneInfo(config["timezone"]))
     source_url = data["source_urls"]["standings"]
     division_short = data["league"]["division"].replace(" Regular Season", "")
-    record = f"{team['wins']}–{team['ties']}–{team['losses']}"
     style_version = hashlib.sha256((ROOT / "site" / "styles.css").read_bytes()).hexdigest()[:10]
 
     html = f"""<!doctype html>
@@ -139,12 +172,7 @@ def main() -> int:
     </div>
     <div class="matchday-hero wrap" id="top">
       <section class="next-card" aria-label="Next match">{hero_match}</section>
-      <div class="summary-cards" aria-label="Team summary">
-        <div class="summary-card"><strong>{ordinal(team['rank'])}</strong><span>Position</span></div>
-        <div class="summary-card"><strong>{record}</strong><span>W–T–L</span></div>
-        <div class="summary-card"><strong>{team['points']}</strong><span>Points</span></div>
-        <div class="summary-card"><strong>{fmt_signed(team['goal_difference'])}</strong><span>Goal diff</span></div>
-      </div>
+{matchup_preview}
     </div>
   </header>
 

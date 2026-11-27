@@ -45,11 +45,24 @@ a { color: inherit; }
 .match-meta a, .fixture-meta a { text-decoration-color: rgba(255,255,255,.35); text-underline-offset: 3px; }
 svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: 0 0 auto; }
 .season-complete p { color: #9fb2ac; margin-bottom: 0; }
-.summary-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-top: 16px; }
-.summary-card { min-width: 0; padding: 20px 22px; border: 1px solid rgba(255,255,255,.11); border-radius: 18px; background: rgba(255,255,255,.055); }
-.summary-card strong, .summary-card span { display: block; }
-.summary-card strong { font-family: Manrope, sans-serif; font-size: 23px; letter-spacing: -.03em; }
-.summary-card span { margin-top: 3px; color: #91a59f; font-size: 12px; text-transform: uppercase; letter-spacing: .08em; }
+.matchup-preview { margin-top: 16px; padding: 24px 28px 8px; border: 1px solid rgba(255,255,255,.11); border-radius: 22px; background: rgba(255,255,255,.055); }
+.preview-kicker { margin: 0 0 18px; color: #91a59f; font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.preview-teams { display: grid; grid-template-columns: minmax(0, 1fr) 46px minmax(0, 1fr); align-items: center; gap: 14px; padding-bottom: 22px; }
+.preview-team { min-width: 0; display: flex; align-items: center; gap: 12px; }
+.preview-team.is-opponent { flex-direction: row-reverse; text-align: right; }
+.team-badge { width: 42px; height: 42px; display: grid; flex: 0 0 auto; place-items: center; border-radius: 13px; background: var(--lime); color: var(--forest); font: 800 14px Manrope, sans-serif; }
+.is-opponent .team-badge { background: rgba(255,255,255,.13); color: #fff; }
+.preview-team div { min-width: 0; display: grid; }
+.preview-team strong { overflow: hidden; font: 700 18px/1.2 Manrope, sans-serif; text-overflow: ellipsis; white-space: nowrap; }
+.preview-team small { margin-top: 3px; color: #91a59f; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; }
+.preview-vs { color: #91a59f; font-size: 12px; font-weight: 700; letter-spacing: .1em; text-align: center; text-transform: uppercase; }
+.comparison-table { border-top: 1px solid rgba(255,255,255,.1); }
+.comparison-row { display: grid; grid-template-columns: 1fr 120px 1fr; align-items: center; min-height: 48px; border-bottom: 1px solid rgba(255,255,255,.08); text-align: center; }
+.comparison-row:last-child { border-bottom: 0; }
+.comparison-row strong { font: 700 17px Manrope, sans-serif; letter-spacing: -.02em; }
+.comparison-row strong:first-child { color: var(--lime); text-align: left; }
+.comparison-row strong:last-child { text-align: right; }
+.comparison-row span { color: #91a59f; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
 .main-content { min-height: 480px; padding-block: 54px 76px; }
 .panel + .panel { margin-top: 72px; }
 .section-heading { display: flex; align-items: end; justify-content: space-between; gap: 24px; margin-bottom: 24px; }
@@ -111,10 +124,15 @@ footer { border-top: 1px solid var(--line); background: #e9eee9; }
   .date-tile strong { font-size: 26px; }
   .next-copy h2 { font-size: 25px; }
   .match-meta { display: grid; margin-top: 17px; }
-  .summary-cards { grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 12px; }
-  .summary-card { padding: 15px 17px; border-radius: 15px; }
-  .summary-card strong { font-size: 20px; }
-  .summary-card span { font-size: 10px; }
+  .matchup-preview { margin-top: 12px; padding: 20px 16px 6px; border-radius: 18px; }
+  .preview-kicker { margin-bottom: 15px; }
+  .preview-teams { grid-template-columns: minmax(0, 1fr) 28px minmax(0, 1fr); gap: 7px; padding-bottom: 18px; }
+  .team-badge { display: none; }
+  .preview-team strong { font-size: 14px; white-space: normal; }
+  .preview-team small { font-size: 9px; }
+  .comparison-row { grid-template-columns: 1fr 82px 1fr; min-height: 43px; }
+  .comparison-row strong { font-size: 15px; }
+  .comparison-row span { font-size: 9px; }
   .main-content { padding-block: 40px 54px; }
   .panel + .panel { margin-top: 56px; }
   .section-heading { align-items: start; margin-bottom: 19px; }
